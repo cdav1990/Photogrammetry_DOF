@@ -24,6 +24,11 @@
       "id": "5",
       "name": "Micro Four Thirds",
       "description": "17.3×13 mm (2x crop)"
+    },
+    {
+      "id": "6",
+      "name": "1-inch",
+      "description": "13.2×8.8 mm (2.7x crop)"
     }
   ],
   "cameras": [
@@ -715,6 +720,84 @@
       "imageWidth": 5184,
       "imageHeight": 3888,
       "megapixels": 20.3
+    },
+    {
+      "id": "97",
+      "brand": "DJI",
+      "model": "P1",
+      "sensorType": "Full Frame",
+      "sensorSizeId": "3",
+      "sensorWidth": 35.9,
+      "sensorHeight": 24,
+      "cropFactor": 1,
+      "imageWidth": 8192,
+      "imageHeight": 5460,
+      "megapixels": 45
+    },
+    {
+      "id": "98",
+      "brand": "DJI",
+      "model": "Mavic 3 Pro",
+      "sensorType": "1-inch",
+      "sensorSizeId": "6",
+      "sensorWidth": 13.2,
+      "sensorHeight": 8.8,
+      "cropFactor": 2.7,
+      "imageWidth": 5280,
+      "imageHeight": 3956,
+      "megapixels": 20
+    },
+    {
+      "id": "99",
+      "brand": "DJI",
+      "model": "Mavic 3 Classic",
+      "sensorType": "4/3 CMOS",
+      "sensorSizeId": "5",
+      "sensorWidth": 17.3,
+      "sensorHeight": 13,
+      "cropFactor": 2,
+      "imageWidth": 5280,
+      "imageHeight": 3956,
+      "megapixels": 20
+    },
+    {
+      "id": "100",
+      "brand": "DJI",
+      "model": "Mavic 3 Enterprise",
+      "sensorType": "4/3 CMOS",
+      "sensorSizeId": "5",
+      "sensorWidth": 17.3,
+      "sensorHeight": 13,
+      "cropFactor": 2,
+      "imageWidth": 5280,
+      "imageHeight": 3956,
+      "megapixels": 20
+    },
+    {
+      "id": "101",
+      "brand": "DJI",
+      "model": "Mavic 2 Pro",
+      "sensorType": "1-inch",
+      "sensorSizeId": "6",
+      "sensorWidth": 13.2,
+      "sensorHeight": 8.8,
+      "cropFactor": 2.7,
+      "imageWidth": 5472,
+      "imageHeight": 3648,
+      "megapixels": 20
+    },
+    {
+      "id": "102",
+      "brand": "DJI",
+      "model": "Mavic 2 Zoom",
+      "sensorType": "1/2.3-inch",
+      "sensorSizeId": "6",
+      "sensorWidth": 6.17,
+      "sensorHeight": 4.55,
+      "cropFactor": 5.6,
+      "imageWidth": 4000,
+      "imageHeight": 3000,
+      "megapixels": 12
     }
   ],
   "lenses": [
@@ -725,7 +808,9 @@
       "focalLength": 150,
       "maxAperture": 5.6,
       "minAperture": 64,
-      "compatibleWith": ["Large Format"]
+      "compatibleWith": [
+        "Large Format"
+      ]
     },
     {
       "id": "2",
@@ -734,7 +819,9 @@
       "focalLength": 210,
       "maxAperture": 5.6,
       "minAperture": 64,
-      "compatibleWith": ["Large Format"]
+      "compatibleWith": [
+        "Large Format"
+      ]
     },
     {
       "id": "3",
@@ -743,7 +830,9 @@
       "focalLength": 80,
       "maxAperture": 2.8,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "81",
@@ -752,7 +841,9 @@
       "focalLength": 38,
       "maxAperture": 2.5,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "82",
@@ -761,7 +852,9 @@
       "focalLength": 55,
       "maxAperture": 2.5,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "83",
@@ -770,7 +863,9 @@
       "focalLength": 90,
       "maxAperture": 2.5,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "84",
@@ -779,7 +874,9 @@
       "focalLength": 55,
       "maxAperture": 3.5,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "85",
@@ -788,7 +885,9 @@
       "focalLength": 21,
       "maxAperture": 4,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "86",
@@ -797,7 +896,9 @@
       "focalLength": 23,
       "maxAperture": 4,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "87",
@@ -806,7 +907,9 @@
       "focalLength": 30,
       "maxAperture": 3.5,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "88",
@@ -815,7 +918,9 @@
       "focalLength": 35,
       "maxAperture": 3.5,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "89",
@@ -824,7 +929,9 @@
       "focalLength": 45,
       "maxAperture": 3.5,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "90",
@@ -833,7 +940,9 @@
       "focalLength": 45,
       "maxAperture": 4,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "91",
@@ -842,7 +951,9 @@
       "focalLength": 65,
       "maxAperture": 2.8,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "92",
@@ -851,7 +962,9 @@
       "focalLength": 80,
       "maxAperture": 1.9,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "93",
@@ -860,7 +973,9 @@
       "focalLength": 90,
       "maxAperture": 3.2,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "94",
@@ -869,7 +984,9 @@
       "focalLength": 135,
       "maxAperture": 2.8,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "95",
@@ -878,7 +995,9 @@
       "focalLength": 210,
       "maxAperture": 4.8,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "80",
@@ -887,7 +1006,9 @@
       "focalLength": 50,
       "maxAperture": 2.8,
       "minAperture": 22,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "96",
@@ -896,7 +1017,9 @@
       "focalLength": 150,
       "maxAperture": 5.6,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "4",
@@ -905,7 +1028,9 @@
       "focalLength": 80,
       "maxAperture": 2.8,
       "minAperture": 22,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "5",
@@ -914,7 +1039,9 @@
       "focalLength": 23,
       "maxAperture": 4,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "6",
@@ -923,7 +1050,9 @@
       "focalLength": 30,
       "maxAperture": 3.5,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "7",
@@ -932,7 +1061,9 @@
       "focalLength": 45,
       "maxAperture": 2.8,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "76",
@@ -941,7 +1072,9 @@
       "focalLength": 50,
       "maxAperture": 3.5,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "77",
@@ -950,7 +1083,9 @@
       "focalLength": 55,
       "maxAperture": 1.7,
       "minAperture": 22,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "8",
@@ -959,7 +1094,9 @@
       "focalLength": 63,
       "maxAperture": 2.8,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "9",
@@ -968,7 +1105,9 @@
       "focalLength": 80,
       "maxAperture": 1.7,
       "minAperture": 22,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "10",
@@ -977,7 +1116,9 @@
       "focalLength": 110,
       "maxAperture": 2,
       "minAperture": 22,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "11",
@@ -986,7 +1127,9 @@
       "focalLength": 120,
       "maxAperture": 4,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "12",
@@ -995,7 +1138,9 @@
       "focalLength": 250,
       "maxAperture": 4,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "78",
@@ -1004,7 +1149,9 @@
       "focalLength": 48,
       "maxAperture": 4,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "79",
@@ -1013,7 +1160,9 @@
       "focalLength": 72.5,
       "maxAperture": 4,
       "minAperture": 32,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "13",
@@ -1022,7 +1171,10 @@
       "focalLength": 16,
       "maxAperture": 2.8,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "14",
@@ -1031,7 +1183,10 @@
       "focalLength": 24,
       "maxAperture": 1.8,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "15",
@@ -1040,7 +1195,10 @@
       "focalLength": 35,
       "maxAperture": 1.8,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "16",
@@ -1049,7 +1207,10 @@
       "focalLength": 50,
       "maxAperture": 1.2,
       "minAperture": 16,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "17",
@@ -1058,7 +1219,10 @@
       "focalLength": 50,
       "maxAperture": 1.8,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "18",
@@ -1067,7 +1231,10 @@
       "focalLength": 85,
       "maxAperture": 1.2,
       "minAperture": 16,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "19",
@@ -1076,7 +1243,10 @@
       "focalLength": 85,
       "maxAperture": 2,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "20",
@@ -1085,7 +1255,10 @@
       "focalLength": 100,
       "maxAperture": 2.8,
       "minAperture": 32,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "21",
@@ -1094,7 +1267,10 @@
       "focalLength": 135,
       "maxAperture": 1.8,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "22",
@@ -1103,7 +1279,10 @@
       "focalLength": 400,
       "maxAperture": 2.8,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "23",
@@ -1112,7 +1291,10 @@
       "focalLength": 600,
       "maxAperture": 4,
       "minAperture": 32,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "24",
@@ -1121,7 +1303,10 @@
       "focalLength": 800,
       "maxAperture": 5.6,
       "minAperture": 32,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "25",
@@ -1130,7 +1315,9 @@
       "focalLength": 16,
       "maxAperture": 2.8,
       "minAperture": 22,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "26",
@@ -1139,7 +1326,9 @@
       "focalLength": 22,
       "maxAperture": 2,
       "minAperture": 22,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "27",
@@ -1148,7 +1337,9 @@
       "focalLength": 32,
       "maxAperture": 1.4,
       "minAperture": 16,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "28",
@@ -1157,7 +1348,10 @@
       "focalLength": 20,
       "maxAperture": 1.8,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "29",
@@ -1166,7 +1360,10 @@
       "focalLength": 24,
       "maxAperture": 1.4,
       "minAperture": 16,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "30",
@@ -1175,7 +1372,10 @@
       "focalLength": 35,
       "maxAperture": 1.4,
       "minAperture": 16,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "31",
@@ -1184,7 +1384,10 @@
       "focalLength": 50,
       "maxAperture": 1.2,
       "minAperture": 16,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "32",
@@ -1193,7 +1396,10 @@
       "focalLength": 50,
       "maxAperture": 1.4,
       "minAperture": 16,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "33",
@@ -1202,7 +1408,10 @@
       "focalLength": 50,
       "maxAperture": 1.8,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "34",
@@ -1211,7 +1420,10 @@
       "focalLength": 85,
       "maxAperture": 1.4,
       "minAperture": 16,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "35",
@@ -1220,7 +1432,10 @@
       "focalLength": 85,
       "maxAperture": 1.8,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "36",
@@ -1229,7 +1444,10 @@
       "focalLength": 100,
       "maxAperture": 2.8,
       "minAperture": 20,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "37",
@@ -1238,7 +1456,10 @@
       "focalLength": 135,
       "maxAperture": 1.8,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "38",
@@ -1247,7 +1468,10 @@
       "focalLength": 400,
       "maxAperture": 2.8,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "39",
@@ -1256,7 +1480,10 @@
       "focalLength": 600,
       "maxAperture": 4,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "40",
@@ -1265,7 +1492,9 @@
       "focalLength": 16,
       "maxAperture": 2.8,
       "minAperture": 22,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "41",
@@ -1274,7 +1503,9 @@
       "focalLength": 20,
       "maxAperture": 2.8,
       "minAperture": 16,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "42",
@@ -1283,7 +1514,9 @@
       "focalLength": 24,
       "maxAperture": 1.8,
       "minAperture": 22,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "43",
@@ -1292,7 +1525,9 @@
       "focalLength": 30,
       "maxAperture": 3.5,
       "minAperture": 22,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "44",
@@ -1301,7 +1536,9 @@
       "focalLength": 35,
       "maxAperture": 1.8,
       "minAperture": 22,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "45",
@@ -1310,7 +1547,9 @@
       "focalLength": 50,
       "maxAperture": 1.8,
       "minAperture": 22,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "46",
@@ -1319,7 +1558,9 @@
       "focalLength": 16,
       "maxAperture": 1.4,
       "minAperture": 16,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "47",
@@ -1328,7 +1569,9 @@
       "focalLength": 23,
       "maxAperture": 1.4,
       "minAperture": 16,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "48",
@@ -1337,7 +1580,9 @@
       "focalLength": 33,
       "maxAperture": 1.4,
       "minAperture": 16,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "49",
@@ -1346,7 +1591,9 @@
       "focalLength": 35,
       "maxAperture": 1.4,
       "minAperture": 16,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "50",
@@ -1355,7 +1602,9 @@
       "focalLength": 50,
       "maxAperture": 1,
       "minAperture": 16,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "51",
@@ -1364,7 +1613,9 @@
       "focalLength": 56,
       "maxAperture": 1.2,
       "minAperture": 16,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "52",
@@ -1373,7 +1624,9 @@
       "focalLength": 80,
       "maxAperture": 2.8,
       "minAperture": 22,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "53",
@@ -1382,7 +1635,9 @@
       "focalLength": 90,
       "maxAperture": 2,
       "minAperture": 16,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "54",
@@ -1391,7 +1646,9 @@
       "focalLength": 200,
       "maxAperture": 2,
       "minAperture": 22,
-      "compatibleWith": ["APS-C"]
+      "compatibleWith": [
+        "APS-C"
+      ]
     },
     {
       "id": "55",
@@ -1400,7 +1657,10 @@
       "focalLength": 50,
       "maxAperture": 1.8,
       "minAperture": 16,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "56",
@@ -1409,7 +1669,10 @@
       "focalLength": 85,
       "maxAperture": 1.8,
       "minAperture": 16,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "57",
@@ -1418,7 +1681,10 @@
       "focalLength": 35,
       "maxAperture": 1.8,
       "minAperture": 16,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "58",
@@ -1427,7 +1693,9 @@
       "focalLength": 25,
       "maxAperture": 1.7,
       "minAperture": 22,
-      "compatibleWith": ["Micro Four Thirds"]
+      "compatibleWith": [
+        "Micro Four Thirds"
+      ]
     },
     {
       "id": "59",
@@ -1436,7 +1704,9 @@
       "focalLength": 45,
       "maxAperture": 1.8,
       "minAperture": 22,
-      "compatibleWith": ["Micro Four Thirds"]
+      "compatibleWith": [
+        "Micro Four Thirds"
+      ]
     },
     {
       "id": "60",
@@ -1445,7 +1715,9 @@
       "focalLength": 17,
       "maxAperture": 1.8,
       "minAperture": 22,
-      "compatibleWith": ["Micro Four Thirds"]
+      "compatibleWith": [
+        "Micro Four Thirds"
+      ]
     },
     {
       "id": "61",
@@ -1454,7 +1726,10 @@
       "focalLength": 24,
       "maxAperture": 1.4,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "62",
@@ -1463,7 +1738,10 @@
       "focalLength": 35,
       "maxAperture": 1.4,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "63",
@@ -1472,7 +1750,10 @@
       "focalLength": 50,
       "maxAperture": 1.2,
       "minAperture": 16,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "64",
@@ -1481,7 +1762,10 @@
       "focalLength": 50,
       "maxAperture": 1.4,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "65",
@@ -1490,7 +1774,10 @@
       "focalLength": 85,
       "maxAperture": 1.2,
       "minAperture": 16,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "66",
@@ -1499,7 +1786,10 @@
       "focalLength": 85,
       "maxAperture": 1.4,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "67",
@@ -1508,7 +1798,10 @@
       "focalLength": 135,
       "maxAperture": 2,
       "minAperture": 32,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "68",
@@ -1517,7 +1810,10 @@
       "focalLength": 50,
       "maxAperture": 2.8,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "69",
@@ -1526,7 +1822,10 @@
       "focalLength": 135,
       "maxAperture": 2.8,
       "minAperture": 32,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "70",
@@ -1535,7 +1834,10 @@
       "focalLength": 24,
       "maxAperture": 2.8,
       "minAperture": 22,
-      "compatibleWith": ["Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "71",
@@ -1544,7 +1846,11 @@
       "focalLength": 25,
       "maxAperture": 1.5,
       "minAperture": 22,
-      "compatibleWith": ["Large Format", "Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Large Format",
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "72",
@@ -1553,7 +1859,11 @@
       "focalLength": 35,
       "maxAperture": 1.5,
       "minAperture": 22,
-      "compatibleWith": ["Large Format", "Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Large Format",
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "73",
@@ -1562,7 +1872,11 @@
       "focalLength": 50,
       "maxAperture": 1.5,
       "minAperture": 22,
-      "compatibleWith": ["Large Format", "Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Large Format",
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "74",
@@ -1571,7 +1885,11 @@
       "focalLength": 75,
       "maxAperture": 1.5,
       "minAperture": 22,
-      "compatibleWith": ["Large Format", "Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Large Format",
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "75",
@@ -1580,7 +1898,11 @@
       "focalLength": 100,
       "maxAperture": 1.5,
       "minAperture": 22,
-      "compatibleWith": ["Large Format", "Full Frame", "APS-C"]
+      "compatibleWith": [
+        "Large Format",
+        "Full Frame",
+        "APS-C"
+      ]
     },
     {
       "id": "76",
@@ -1589,7 +1911,9 @@
       "focalLength": 35,
       "maxAperture": 5.6,
       "minAperture": 22,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "77",
@@ -1598,7 +1922,9 @@
       "focalLength": 80,
       "maxAperture": 2.8,
       "minAperture": 22,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "78",
@@ -1607,7 +1933,9 @@
       "focalLength": 150,
       "maxAperture": 3.5,
       "minAperture": 22,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
     },
     {
       "id": "79",
@@ -1616,8 +1944,124 @@
       "focalLength": 90,
       "maxAperture": 3.5,
       "minAperture": 22,
-      "compatibleWith": ["Medium Format"]
+      "compatibleWith": [
+        "Medium Format"
+      ]
+    },
+    {
+      "id": "103",
+      "brand": "DJI",
+      "model": "P1 24mm f/2.8 Fixed Focus",
+      "focalLength": 24,
+      "maxAperture": 2.8,
+      "minAperture": 11,
+      "compatibleWith": ["Full Frame"]
+    },
+    {
+      "id": "104",
+      "brand": "DJI",
+      "model": "Mavic 3 Pro Hasselblad 24mm f/2.8",
+      "focalLength": 24,
+      "maxAperture": 2.8,
+      "minAperture": 11,
+      "compatibleWith": ["1-inch"]
+    },
+    {
+      "id": "105",
+      "brand": "DJI",
+      "model": "Mavic 3 Pro 70mm f/2.8",
+      "focalLength": 70,
+      "maxAperture": 2.8,
+      "minAperture": 11,
+      "compatibleWith": ["1-inch"]
+    },
+    {
+      "id": "106",
+      "brand": "DJI",
+      "model": "Mavic 3 Pro 166mm f/3.4",
+      "focalLength": 166,
+      "maxAperture": 3.4,
+      "minAperture": 11,
+      "compatibleWith": ["1-inch"]
+    },
+    {
+      "id": "107",
+      "brand": "DJI",
+      "model": "Mavic 3 Classic 24mm f/2.8-11",
+      "focalLength": 24,
+      "maxAperture": 2.8,
+      "minAperture": 11,
+      "compatibleWith": ["Micro Four Thirds", "4/3 CMOS"]
+    },
+    {
+      "id": "108",
+      "brand": "DJI",
+      "model": "Mavic 3E Wide Camera 24mm f/2.8",
+      "focalLength": 24,
+      "maxAperture": 2.8,
+      "minAperture": 11,
+      "compatibleWith": ["Micro Four Thirds", "4/3 CMOS"]
+    },
+    {
+      "id": "109",
+      "brand": "DJI",
+      "model": "Mavic 2 Pro Hasselblad 28mm f/2.8",
+      "focalLength": 28,
+      "maxAperture": 2.8,
+      "minAperture": 11,
+      "compatibleWith": ["1-inch"]
+    },
+    {
+      "id": "110",
+      "brand": "DJI",
+      "model": "Mavic 2 Zoom 24-48mm f/2.8-3.8",
+      "focalLength": 36,
+      "maxAperture": 2.8,
+      "minAperture": 11,
+      "compatibleWith": ["1-inch", "1/2.3-inch"]
+    },
+    {
+      "id": "111",
+      "brand": "DJI",
+      "model": "P1 35mm f/2.8 Fixed Focus",
+      "focalLength": 35,
+      "maxAperture": 2.8,
+      "minAperture": 11,
+      "compatibleWith": ["Full Frame"]
+    },
+    {
+      "id": "112",
+      "brand": "DJI",
+      "model": "P1 50mm f/2.8 Fixed Focus",
+      "focalLength": 50,
+      "maxAperture": 2.8,
+      "minAperture": 11,
+      "compatibleWith": ["Full Frame"]
     }
   ],
-  "apertures": [1, 1.2, 1.4, 1.5, 1.7, 1.8, 1.9, 2, 2.5, 2.8, 3.2, 3.5, 4, 4.5, 4.8, 5.6, 8, 11, 16, 22, 32, 45, 64]
-} 
+  "apertures": [
+    1,
+    1.2,
+    1.4,
+    1.5,
+    1.7,
+    1.8,
+    1.9,
+    2,
+    2.5,
+    2.8,
+    3.2,
+    3.5,
+    4,
+    4.5,
+    4.8,
+    5.6,
+    8,
+    11,
+    16,
+    22,
+    32,
+    45,
+    64
+  ]
+}
