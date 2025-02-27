@@ -77,6 +77,29 @@ const DOFCalculator = () => {
               // Fujifilm X series cameras work with XF lenses
               return lens.brand === 'Fujifilm' && lens.model.includes('XF');
             }
+          } else if (camera.brand === 'DJI') {
+            if (camera.model === 'P1') {
+              // DJI P1 camera works with DJI P1 lenses - use a more permissive check
+              // This checks if the lens is made by DJI and either has "P1" in the model name
+              // or has "Full Frame" in compatibleWith array
+              return lens.brand === 'DJI' && 
+                     (lens.model.includes('P1') || 
+                      (lens.compatibleWith && lens.compatibleWith.includes('Full Frame')));
+            } else if (camera.model.includes('Mavic 3 Pro')) {
+              // Mavic 3 Pro camera works with corresponding lenses
+              return lens.brand === 'DJI' && (lens.model.includes('Mavic 3 Pro') || lens.model.includes('Mavic 3E'));
+            } else if (camera.model.includes('Mavic 3 Classic') || camera.model.includes('Mavic 3 Enterprise')) {
+              // Mavic 3 Classic/Enterprise work with Classic or Enterprise lenses
+              return lens.brand === 'DJI' && (
+                lens.model.includes('Mavic 3 Classic') || 
+                lens.model.includes('Mavic 3E')
+              );
+            } else if (camera.model.includes('Mavic 2')) {
+              // Mavic 2 cameras work with their specific lenses
+              return lens.brand === 'DJI' && lens.model.includes(camera.model);
+            }
+            // Default for other DJI cameras
+            return lens.brand === 'DJI' && lens.compatibleWith.includes(camera.sensorType);
           } else if (camera.brand === 'Canon') {
             if (camera.model.includes('EOS R')) {
               if (camera.sensorType === 'Full Frame') {
@@ -175,19 +198,65 @@ const DOFCalculator = () => {
     return `${meters.toFixed(fixed)}m`;
   };
   
-  // Handle distance input changes with unit conversion
-  const handleDistanceChange = (value) => {
-    // Ensure value is a number and valid
-    let numValue = parseFloat(value);
-    if (isNaN(numValue) || numValue <= 0) {
-      numValue = 0.1; // Minimum allowed value
+  // Parse distance input that might include unit strings (e.g., "5m" or "10ft")
+  const parseDistanceInput = (input) => {
+    // Convert to string to ensure we can perform string operations
+    const inputStr = String(input).trim().toLowerCase();
+    
+    // Regular expressions to match units
+    const meterRegex = /^([\d.]+)\s*m$/;
+    const feetRegex = /^([\d.]+)\s*ft$/;
+    
+    // Check if the input matches unit patterns
+    const meterMatch = inputStr.match(meterRegex);
+    if (meterMatch) {
+      return { value: parseFloat(meterMatch[1]), unit: 'm' };
     }
     
-    // If in feet mode, convert to meters for internal storage
-    if (distanceUnit === 'ft') {
-      setFocusDistance(feetToMeters(numValue));
+    const feetMatch = inputStr.match(feetRegex);
+    if (feetMatch) {
+      return { value: parseFloat(feetMatch[1]), unit: 'ft' };
+    }
+    
+    // Handle if user just typed in the unit without the suffix
+    if (inputStr.endsWith('m')) {
+      // Extract the number part and return as meters
+      const value = parseFloat(inputStr.slice(0, -1));
+      return { value, unit: 'm' };
+    } else if (inputStr.endsWith('ft')) {
+      // Extract the number part and return as feet
+      const value = parseFloat(inputStr.slice(0, -2));
+      return { value, unit: 'ft' };
+    }
+    
+    // No unit specified, return just the value
+    return { value: parseFloat(inputStr), unit: null };
+  };
+
+  // Handle distance input changes with unit conversion
+  const handleDistanceChange = (value) => {
+    // Parse the input which might include units
+    const { value: numValue, unit } = parseDistanceInput(value);
+    
+    // If the input is not a valid number, don't update state
+    if (isNaN(numValue)) return;
+    
+    // Enforce minimum value
+    let distanceValue = Math.max(0.1, numValue);
+    
+    // Get the maximum value for validation
+    const maxValue = distanceUnit === 'm' ? 100 : metersToFeet(100);
+    
+    // Ensure the value doesn't exceed the maximum
+    distanceValue = Math.min(distanceValue, maxValue);
+    
+    // Process based on the unit provided or current unit setting
+    if (unit === 'ft' || (unit === null && distanceUnit === 'ft')) {
+      // Convert from feet to meters (the internal storage unit)
+      setFocusDistance(feetToMeters(distanceValue));
     } else {
-      setFocusDistance(numValue);
+      // Already in meters
+      setFocusDistance(distanceValue);
     }
   };
   
@@ -235,10 +304,17 @@ const DOFCalculator = () => {
   
   // Get the displayed value for the distance input
   const getDisplayedDistance = () => {
+    if (!isFinite(focusDistance) || isNaN(focusDistance)) {
+      return distanceUnit === 'ft' ? '0.1' : '0.1';
+    }
+    
     if (distanceUnit === 'ft') {
-      return metersToFeet(focusDistance).toFixed(1);
+      // Convert meters to feet and format with appropriate precision
+      const feetValue = metersToFeet(focusDistance);
+      return feetValue >= 100 ? feetValue.toFixed(0) : feetValue.toFixed(1);
     } else {
-      return focusDistance.toFixed(1);
+      // Format meters with appropriate precision
+      return focusDistance >= 100 ? focusDistance.toFixed(0) : focusDistance.toFixed(1);
     }
   };
   
@@ -313,7 +389,9 @@ const DOFCalculator = () => {
               <option value="">Select Lens</option>
               {filteredLenses.map(lens => (
                 <option key={lens.id} value={lens.id}>
-                  {lens.model} ({lens.focalLength}mm f/{lens.maxAperture})
+                  {lens.model.includes("Mavic 2 Zoom") 
+                    ? `${lens.model} (Zoom range: 24-48mm)` 
+                    : `${lens.model} (${lens.focalLength}mm f/${lens.maxAperture})`}
                 </option>
               ))}
             </select>
@@ -353,9 +431,36 @@ const DOFCalculator = () => {
               <input 
                 type="number" 
                 min={getMinDistanceValue()}
+                max={getMaxDistanceValue()}
                 step={getStepValue()}
                 value={getDisplayedDistance()}
                 onChange={(e) => handleDistanceChange(e.target.value)}
+                onBlur={(e) => {
+                  // When input loses focus, ensure value is within range
+                  const { value: numValue, unit } = parseDistanceInput(e.target.value);
+                  if (!isNaN(numValue)) {
+                    const minValue = getMinDistanceValue();
+                    const maxValue = getMaxDistanceValue();
+                    
+                    // Convert value to current display unit if a different unit was specified
+                    let displayValue = numValue;
+                    if (unit === 'ft' && distanceUnit === 'm') {
+                      displayValue = feetToMeters(numValue);
+                    } else if (unit === 'm' && distanceUnit === 'ft') {
+                      displayValue = metersToFeet(numValue);
+                    }
+                    
+                    // Validate and adjust value if needed
+                    if (displayValue < minValue) {
+                      handleDistanceChange(minValue);
+                    } else if (displayValue > maxValue) {
+                      handleDistanceChange(maxValue);
+                    } else if (unit) {
+                      // If a unit was specified, make sure to handle it properly
+                      handleDistanceChange(e.target.value);
+                    }
+                  }
+                }}
                 disabled={!selectedLens}
               />
               <span onClick={toggleDistanceUnit} title="Click to toggle units">
@@ -401,9 +506,18 @@ const DOFCalculator = () => {
                 <span className="badge-value">{selectedCameraDetails.brand} {selectedCameraDetails.model}</span>
               </div>
               <div className="equipment-badge">
+                <span className="badge-label">Sensor:</span>
+                <span className="badge-value">{selectedCameraDetails.megapixels}MP</span>
+              </div>
+              <div className="equipment-badge">
                 <span className="badge-label">Lens:</span>
                 <span className="badge-value">{selectedLensDetails.focalLength}mm @ f/{selectedAperture}</span>
               </div>
+              {validatePixelDensity(selectedCameraDetails).message && (
+                <div className="equipment-badge warning">
+                  <span className="badge-value">{validatePixelDensity(selectedCameraDetails).message}</span>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -575,11 +689,16 @@ function calculateGSD(distance, focalLength, cameraDetails) {
   // GSD = (Pixel Size × Distance) / Focal Length
   const gsdMM = (pixelSizeMM * distanceMM) / focalLength;
   
+  // Calculate error bounds (±5% for professional applications)
+  const errorMargin = gsdMM * 0.05;
+  const lowerBound = gsdMM - errorMargin;
+  const upperBound = gsdMM + errorMargin;
+  
   // Format based on value
   if (gsdMM < 10) {
-    return `${gsdMM.toFixed(2)} mm/pixel`;
+    return `${gsdMM.toFixed(2)} mm/pixel (±${errorMargin.toFixed(2)})`;
   } else {
-    return `${(gsdMM / 10).toFixed(2)} cm/pixel`;
+    return `${(gsdMM / 10).toFixed(2)} cm/pixel (±${(errorMargin / 10).toFixed(2)})`;
   }
 }
 
@@ -597,6 +716,36 @@ function getGSDValue(distance, focalLength, cameraDetails) {
   
   // GSD = (Pixel Size × Distance) / Focal Length
   return (pixelSizeMM * distanceMM) / focalLength;
+}
+
+// Helper function to validate pixel density against expected values
+function validatePixelDensity(cameraDetails) {
+  if (!cameraDetails) return { valid: true, message: '' };
+  
+  const { sensorWidth, sensorHeight, imageWidth, imageHeight, megapixels } = cameraDetails;
+  
+  // Calculate expected megapixels based on image dimensions
+  const calculatedMegapixels = (imageWidth * imageHeight) / 1000000;
+  
+  // Check if the calculated megapixels match the stated megapixels
+  const megapixelDifference = Math.abs(calculatedMegapixels - megapixels);
+  
+  // Calculate pixel density in pixels per mm
+  const pixelDensityWidth = imageWidth / sensorWidth;
+  const pixelDensityHeight = imageHeight / sensorHeight;
+  
+  // Check if pixel density is consistent across width and height
+  const densityDifferencePercent = Math.abs((pixelDensityWidth - pixelDensityHeight) / pixelDensityWidth) * 100;
+  
+  // Valid if megapixel difference is within 1% and density difference is within 5%
+  const valid = megapixelDifference < (megapixels * 0.01) && densityDifferencePercent < 5;
+  
+  return {
+    valid,
+    megapixelDifference,
+    densityDifferencePercent,
+    message: valid ? '' : 'Warning: Pixel dimensions may not match sensor size'
+  };
 }
 
 export default DOFCalculator; 
