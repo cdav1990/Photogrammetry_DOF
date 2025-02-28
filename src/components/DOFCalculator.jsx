@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { getDOFCalculations } from '../utils/dofCalculations';
 import DOFVisualization from './DOFVisualization';
+import SkunkworksLogo from './SkunkworksLogo';
 import cameraLensData from '../data/cameraLensData.json';
+import PhotogrammetryPlanner from './PhotogrammetryPlanner';
 
 // Helper function to convert meters to feet
 const metersToFeet = (meters) => meters * 3.28084;
@@ -335,7 +337,9 @@ const DOFCalculator = () => {
   
   return (
     <div className="dof-calculator">
-      <h1>Advanced Photogrammetry DOF Calculator</h1>
+      <div className="calculator-header">
+        <h1>Photogrammetry Calculator</h1>
+      </div>
       
       <div className="calculator-content">
         <div className="calculator-inputs">
@@ -518,6 +522,9 @@ const DOFCalculator = () => {
                   <span className="badge-value">{validatePixelDensity(selectedCameraDetails).message}</span>
                 </div>
               )}
+              <div className="equipment-badge logo-container">
+                <SkunkworksLogo />
+              </div>
             </div>
           )}
         </div>
@@ -621,6 +628,14 @@ const DOFCalculator = () => {
             </div>
           )}
         </div>
+
+        {/* Add the Photogrammetry Planner section */}
+        {dofCalculations && (
+          <PhotogrammetryPlanner 
+            groundCoverage={getGroundCoverage(dofCalculations.focusDistance, selectedLensDetails?.focalLength, selectedCameraDetails)}
+            distanceUnit={distanceUnit}
+          />
+        )}
       </div>
     </div>
   );
