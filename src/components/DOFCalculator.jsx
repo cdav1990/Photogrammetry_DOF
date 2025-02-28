@@ -342,196 +342,204 @@ const DOFCalculator = () => {
       </div>
       
       <div className="calculator-content">
+        <h2>Camera Setup</h2>
         <div className="calculator-inputs">
           <div className="input-group">
-            <label htmlFor="sensor-size-select">Sensor Format:</label>
-            <select 
-              id="sensor-size-select" 
-              value={selectedSensorSize} 
-              onChange={(e) => setSelectedSensorSize(e.target.value)}
-            >
-              <option value="">Select Sensor Format</option>
-              {cameraLensData.sensorSizes.map(sensorSize => (
-                <option key={sensorSize.id} value={sensorSize.id}>
-                  {sensorSize.name}
-                </option>
-              ))}
-            </select>
-            {!selectedSensorSize && (
-              <small className="form-tip">Select a sensor size to get started</small>
-            )}
-          </div>
-          
-          <div className="input-group">
-            <label htmlFor="camera-select">Camera Model:</label>
-            <select 
-              id="camera-select" 
-              value={selectedCamera} 
-              onChange={(e) => setSelectedCamera(e.target.value)}
-              disabled={!selectedSensorSize}
-            >
-              <option value="">Select Camera</option>
-              {filteredCameras.map(camera => (
-                <option key={camera.id} value={camera.id}>
-                  {camera.brand} {camera.model}
-                </option>
-              ))}
-            </select>
-            {selectedSensorSize && !selectedCamera && filteredCameras.length > 0 && (
-              <small className="form-tip">{filteredCameras.length} cameras available</small>
-            )}
-          </div>
-          
-          <div className="input-group">
-            <label htmlFor="lens-select">Select Lens:</label>
-            <select 
-              id="lens-select" 
-              value={selectedLens} 
-              onChange={(e) => setSelectedLens(e.target.value)}
-              disabled={!selectedCamera}
-            >
-              <option value="">Select Lens</option>
-              {filteredLenses.map(lens => (
-                <option key={lens.id} value={lens.id}>
-                  {lens.model.includes("Mavic 2 Zoom") 
-                    ? `${lens.model} (Zoom range: 24-48mm)` 
-                    : `${lens.model} (${lens.focalLength}mm f/${lens.maxAperture})`}
-                </option>
-              ))}
-            </select>
-            {selectedCamera && !selectedLens && filteredLenses.length > 0 && (
-              <small className="form-tip">{filteredLenses.length} compatible lenses</small>
-            )}
-          </div>
-          
-          <div className="input-group">
-            <label htmlFor="aperture-select">F-Stop:</label>
-            <select 
-              id="aperture-select" 
-              value={selectedAperture} 
-              onChange={(e) => setSelectedAperture(Number(e.target.value))}
-              disabled={!selectedLens}
-            >
-              {selectedLensDetails ? (
-                cameraLensData.apertures
-                  .filter(ap => ap >= selectedLensDetails.maxAperture && ap <= selectedLensDetails.minAperture)
-                  .map(aperture => (
-                    <option key={aperture} value={aperture}>
-                      f/{aperture}
-                    </option>
-                  ))
-              ) : (
-                <option value="">Select a lens first</option>
+            <h3>Camera & Lens</h3>
+            <div className="input-group">
+              <label htmlFor="sensor-size-select">Sensor Format:</label>
+              <select 
+                id="sensor-size-select" 
+                value={selectedSensorSize} 
+                onChange={(e) => setSelectedSensorSize(e.target.value)}
+              >
+                <option value="">Select Sensor Format</option>
+                {cameraLensData.sensorSizes.map(sensorSize => (
+                  <option key={sensorSize.id} value={sensorSize.id}>
+                    {sensorSize.name}
+                  </option>
+                ))}
+              </select>
+              {!selectedSensorSize && (
+                <small className="form-tip">Select a sensor size to get started</small>
               )}
-            </select>
-            {selectedLensDetails && (
-              <small className="form-tip">Lens range: f/{selectedLensDetails.maxAperture} to f/{selectedLensDetails.minAperture}</small>
-            )}
-          </div>
-          
-          <div className="input-group distance-input">
-            <label htmlFor="focus-distance">Subject Distance:</label>
-            <div className="range-value">
-              <input 
-                type="number" 
-                min={getMinDistanceValue()}
-                max={getMaxDistanceValue()}
-                step={getStepValue()}
-                value={getDisplayedDistance()}
-                onChange={(e) => handleDistanceChange(e.target.value)}
-                onBlur={(e) => {
-                  // When input loses focus, ensure value is within range
-                  const { value: numValue, unit } = parseDistanceInput(e.target.value);
-                  if (!isNaN(numValue)) {
-                    const minValue = getMinDistanceValue();
-                    const maxValue = getMaxDistanceValue();
-                    
-                    // Convert value to current display unit if a different unit was specified
-                    let displayValue = numValue;
-                    if (unit === 'ft' && distanceUnit === 'm') {
-                      displayValue = feetToMeters(numValue);
-                    } else if (unit === 'm' && distanceUnit === 'ft') {
-                      displayValue = metersToFeet(numValue);
-                    }
-                    
-                    // Validate and adjust value if needed
-                    if (displayValue < minValue) {
-                      handleDistanceChange(minValue);
-                    } else if (displayValue > maxValue) {
-                      handleDistanceChange(maxValue);
-                    } else if (unit) {
-                      // If a unit was specified, make sure to handle it properly
-                      handleDistanceChange(e.target.value);
-                    }
-                  }
-                }}
-                disabled={!selectedLens}
-              />
-              <span onClick={toggleDistanceUnit} title="Click to toggle units">
-                {distanceUnit}
-              </span>
             </div>
             
-            <div className="range-track">
-              <input 
-                type="range" 
-                id="focus-distance" 
-                min={getMinDistanceValue()}
-                max={getMaxDistanceValue()}
-                step={getStepValue()}
-                value={distanceUnit === 'm' ? focusDistance : metersToFeet(focusDistance)}
-                onChange={(e) => handleDistanceChange(e.target.value)}
-                disabled={!selectedLens}
-              />
-              <div className="track-marks">
-                {generateTrackMarks().map((mark, index) => (
-                  <div 
-                    key={index} 
-                    className="track-mark" 
-                    style={{ left: `${mark.position}%` }}
-                    title={`${mark.value}${distanceUnit}`}
-                  />
+            <div className="input-group">
+              <label htmlFor="camera-select">Camera Model:</label>
+              <select 
+                id="camera-select" 
+                value={selectedCamera} 
+                onChange={(e) => setSelectedCamera(e.target.value)}
+                disabled={!selectedSensorSize}
+              >
+                <option value="">Select Camera</option>
+                {filteredCameras.map(camera => (
+                  <option key={camera.id} value={camera.id}>
+                    {camera.brand} {camera.model}
+                  </option>
                 ))}
-              </div>
+              </select>
+              {selectedSensorSize && !selectedCamera && filteredCameras.length > 0 && (
+                <small className="form-tip">{filteredCameras.length} cameras available</small>
+              )}
             </div>
-            {selectedLens && (
-              <small className="form-tip">
-                {distanceUnit === 'm' 
-                  ? `Range: 0.1m to 100m (${metersToFeet(0.1).toFixed(1)}ft to ${metersToFeet(100).toFixed(1)}ft)` 
-                  : `Range: ${metersToFeet(0.1).toFixed(1)}ft to ${metersToFeet(100).toFixed(1)}ft (0.1m to 100m)`}
-              </small>
-            )}
+            
+            <div className="input-group">
+              <label htmlFor="lens-select">Select Lens:</label>
+              <select 
+                id="lens-select" 
+                value={selectedLens} 
+                onChange={(e) => setSelectedLens(e.target.value)}
+                disabled={!selectedCamera}
+              >
+                <option value="">Select Lens</option>
+                {filteredLenses.map(lens => (
+                  <option key={lens.id} value={lens.id}>
+                    {lens.model.includes("Mavic 2 Zoom") 
+                      ? `${lens.model} (Zoom range: 24-48mm)` 
+                      : `${lens.model} (${lens.focalLength}mm f/${lens.maxAperture})`}
+                  </option>
+                ))}
+              </select>
+              {selectedCamera && !selectedLens && filteredLenses.length > 0 && (
+                <small className="form-tip">{filteredLenses.length} compatible lenses</small>
+              )}
+            </div>
           </div>
           
-          {selectedCameraDetails && selectedLensDetails && (
-            <div className="selected-equipment">
-              <div className="equipment-badge">
-                <span className="badge-label">Camera:</span>
-                <span className="badge-value">{selectedCameraDetails.brand} {selectedCameraDetails.model}</span>
-              </div>
-              <div className="equipment-badge">
-                <span className="badge-label">Sensor:</span>
-                <span className="badge-value">{selectedCameraDetails.megapixels}MP</span>
-              </div>
-              <div className="equipment-badge">
-                <span className="badge-label">Lens:</span>
-                <span className="badge-value">{selectedLensDetails.focalLength}mm @ f/{selectedAperture}</span>
-              </div>
-              {validatePixelDensity(selectedCameraDetails).message && (
-                <div className="equipment-badge warning">
-                  <span className="badge-value">{validatePixelDensity(selectedCameraDetails).message}</span>
-                </div>
+          <div className="input-section">
+            <h3>Camera Settings</h3>
+            <div className="input-group">
+              <label htmlFor="aperture-select">F-Stop:</label>
+              <select 
+                id="aperture-select" 
+                value={selectedAperture} 
+                onChange={(e) => setSelectedAperture(Number(e.target.value))}
+                disabled={!selectedLens}
+              >
+                {selectedLensDetails ? (
+                  cameraLensData.apertures
+                    .filter(ap => ap >= selectedLensDetails.maxAperture && ap <= selectedLensDetails.minAperture)
+                    .map(aperture => (
+                      <option key={aperture} value={aperture}>
+                        f/{aperture}
+                      </option>
+                    ))
+                ) : (
+                  <option value="">Select a lens first</option>
+                )}
+              </select>
+              {selectedLensDetails && (
+                <small className="form-tip">Lens range: f/{selectedLensDetails.maxAperture} to f/{selectedLensDetails.minAperture}</small>
               )}
-              <div className="equipment-badge logo-container">
-                <SkunkworksLogo />
-              </div>
             </div>
-          )}
+            
+            <div className="input-group distance-input">
+              <label htmlFor="focus-distance">Subject Distance:</label>
+              <div className="range-value">
+                <input 
+                  type="number" 
+                  min={getMinDistanceValue()}
+                  max={getMaxDistanceValue()}
+                  step={getStepValue()}
+                  value={getDisplayedDistance()}
+                  onChange={(e) => handleDistanceChange(e.target.value)}
+                  onBlur={(e) => {
+                    // When input loses focus, ensure value is within range
+                    const { value: numValue, unit } = parseDistanceInput(e.target.value);
+                    if (!isNaN(numValue)) {
+                      const minValue = getMinDistanceValue();
+                      const maxValue = getMaxDistanceValue();
+                      
+                      // Convert value to current display unit if a different unit was specified
+                      let displayValue = numValue;
+                      if (unit === 'ft' && distanceUnit === 'm') {
+                        displayValue = feetToMeters(numValue);
+                      } else if (unit === 'm' && distanceUnit === 'ft') {
+                        displayValue = metersToFeet(numValue);
+                      }
+                      
+                      // Validate and adjust value if needed
+                      if (displayValue < minValue) {
+                        handleDistanceChange(minValue);
+                      } else if (displayValue > maxValue) {
+                        handleDistanceChange(maxValue);
+                      } else if (unit) {
+                        // If a unit was specified, make sure to handle it properly
+                        handleDistanceChange(e.target.value);
+                      }
+                    }
+                  }}
+                  disabled={!selectedLens}
+                />
+                <span onClick={toggleDistanceUnit} title="Click to toggle units">
+                  {distanceUnit}
+                </span>
+              </div>
+              
+              <div className="range-track">
+                <input 
+                  type="range" 
+                  id="focus-distance" 
+                  min={getMinDistanceValue()}
+                  max={getMaxDistanceValue()}
+                  step={getStepValue()}
+                  value={distanceUnit === 'm' ? focusDistance : metersToFeet(focusDistance)}
+                  onChange={(e) => handleDistanceChange(e.target.value)}
+                  disabled={!selectedLens}
+                />
+                <div className="track-marks">
+                  {generateTrackMarks().map((mark, index) => (
+                    <div 
+                      key={index} 
+                      className="track-mark" 
+                      style={{ left: `${mark.position}%` }}
+                      title={`${mark.value}${distanceUnit}`}
+                    />
+                  ))}
+                </div>
+              </div>
+              {selectedLens && (
+                <small className="form-tip">
+                  {distanceUnit === 'm' 
+                    ? `Range: 0.1m to 100m (${metersToFeet(0.1).toFixed(1)}ft to ${metersToFeet(100).toFixed(1)}ft)` 
+                    : `Range: ${metersToFeet(0.1).toFixed(1)}ft to ${metersToFeet(100).toFixed(1)}ft (0.1m to 100m)`}
+                </small>
+              )}
+            </div>
+            
+            {selectedCameraDetails && selectedLensDetails && (
+              <div className="selected-equipment">
+                <div className="equipment-badge">
+                  <span className="badge-label">Camera:</span>
+                  <span className="badge-value">{selectedCameraDetails.brand} {selectedCameraDetails.model}</span>
+                </div>
+                <div className="equipment-badge">
+                  <span className="badge-label">Sensor:</span>
+                  <span className="badge-value">{selectedCameraDetails.megapixels}MP</span>
+                </div>
+                <div className="equipment-badge">
+                  <span className="badge-label">Lens:</span>
+                  <span className="badge-value">{selectedLensDetails.focalLength}mm @ f/{selectedAperture}</span>
+                </div>
+                {validatePixelDensity(selectedCameraDetails).message && (
+                  <div className="equipment-badge warning">
+                    <span className="badge-value">{validatePixelDensity(selectedCameraDetails).message}</span>
+                  </div>
+                )}
+                <div className="equipment-badge logo-container">
+                  <SkunkworksLogo />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
         
         <div className="calculator-results-container">
           {dofCalculations ? (
-            <>
+            <div className="dof-results-section">
+              <h2>Depth of Field Results</h2>
               <div className="visualization-container">
                 <DOFVisualization 
                   dofData={dofCalculations} 
@@ -611,7 +619,7 @@ const DOFCalculator = () => {
                   )}
                 </div>
               </div>
-            </>
+            </div>
           ) : (
             <div className="empty-state">
               <div className="empty-state-content">
@@ -629,12 +637,14 @@ const DOFCalculator = () => {
           )}
         </div>
 
-        {/* Add the Photogrammetry Planner section */}
         {dofCalculations && (
-          <PhotogrammetryPlanner 
-            groundCoverage={getGroundCoverage(dofCalculations.focusDistance, selectedLensDetails?.focalLength, selectedCameraDetails)}
-            distanceUnit={distanceUnit}
-          />
+          <div className="photogrammetry-section">
+            <h2>Photogrammetry Planning</h2>
+            <PhotogrammetryPlanner 
+              groundCoverage={getGroundCoverage(dofCalculations.focusDistance, selectedLensDetails?.focalLength, selectedCameraDetails)}
+              distanceUnit={distanceUnit}
+            />
+          </div>
         )}
       </div>
     </div>
