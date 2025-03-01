@@ -23,9 +23,9 @@ const DOFVisualization = ({ dofData, distanceUnit, fieldOfView, groundCoverage }
     d3.select(svgRef.current).selectAll("*").remove();
     
     // Set up dimensions and constants
-    const margin = { top: 20, right: 40, bottom: 40, left: 60 }; // Increased bottom margin for distance scale
-    const width = 600;
-    const height = 250;
+    const margin = { top: 15, right: 30, bottom: 35, left: 50 }; // Reduced margins
+    const width = 550; // Slightly reduced width
+    const height = 200; // Reduced height
     
     // Determine if far limit is effectively infinite for visualization purposes
     const isEffectivelyInfinite = farLimit > 10 * focusDistance || farLimit > 1000;
@@ -537,7 +537,7 @@ const DOFVisualization = ({ dofData, distanceUnit, fieldOfView, groundCoverage }
       ref={svgRef} 
       className="dof-visualization" 
       width="100%" 
-      height="250"
+      height="200" // Reduced height
     />
   );
 };
